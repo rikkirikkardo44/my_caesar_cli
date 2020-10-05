@@ -1,6 +1,8 @@
-const encoder = (data, shift, action) => {
+const encoder = (data, step, action) => {
   const lowerLatinAlphabet = "abcdefghijklmnopqrstuvwxyz";
   const upperLatinAlphabet = lowerLatinAlphabet.toUpperCase();
+  const shift =
+    step > lowerLatinAlphabet.length ? step % lowerLatinAlphabet.length : step;
   const dataArr = data.split("");
   const result = dataArr
     .map((letter) => {
@@ -14,8 +16,14 @@ const encoder = (data, shift, action) => {
         ? lowerLatinAlphabet
         : upperLatinAlphabet;
       const idx = currentAlphabetCase.indexOf(letter);
-      const increment = idx + shift > 25 ? (idx + shift - currentAlphabetCase.length) : idx + shift;
-      const decrement = idx - shift < 0 ? currentAlphabetCase.length + idx - shift : idx - shift;
+      const increment =
+        idx + shift > 25
+          ? idx + shift - currentAlphabetCase.length
+          : idx + shift;
+      const decrement =
+        idx - shift < 0
+          ? currentAlphabetCase.length + idx - shift
+          : idx - shift;
       const encodeAction = action === "encode" ? increment : decrement;
       return currentAlphabetCase[encodeAction];
     })
