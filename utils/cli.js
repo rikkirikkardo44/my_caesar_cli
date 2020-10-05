@@ -1,7 +1,5 @@
 const { program } = require("commander");
 
-//program.storeOptionsAsProperties(false).passCommandToAction(false);
-
 program
   .name("my_caesar_cli")
   .requiredOption("-s, --shift <shift>", "shift for encode/decode data")
