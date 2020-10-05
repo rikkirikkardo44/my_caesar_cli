@@ -14,8 +14,8 @@ const dataInput = async (inputPath, outputPath, shift, action) => {
   } else {
     const input = path.join(__dirname, "../", inputPath);
     if (!existsSync(input)) {
-      console.error("Error: can not read input file");
-      return;
+      process.stderr.write("Error: can not read input file");
+      process.exit();
     } else {
       const data = await fs.readFile(input, "utf-8");
       const transformData = `${transform(data, shift, action)}\n`;

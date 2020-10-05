@@ -8,8 +8,8 @@ const dataOutput = (data, outputPath) => {
   } else {
     const output = path.join(__dirname, "../", outputPath);
     if (!existsSync(output)) {
-      console.error("Error: can not read output file");
-      return;
+      process.stderr.write("Error: can not read output file");
+      process.exit();
     } else {
       fs.appendFile(output, data, "utf-8");
     }

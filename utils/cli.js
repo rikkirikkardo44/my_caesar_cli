@@ -13,4 +13,9 @@ program.parse(process.argv);
 
 const programOptions = program.opts();
 
+if (programOptions.action !== 'encode' || programOptions.action !== 'decode') {
+  process.stderr.write('Error: --action must be "encode" or "decode"')
+  process.exit()
+}
+
 module.exports = programOptions;
