@@ -8,7 +8,7 @@ Implement CLI tool that will encode and decode a text by Caesar cipher.
 CLI tool should accept 4 options (short alias and full name):
 1. required options:
     - -s, --shift: a shift (number)
-    - -a, --actions: an action (encode | decode)
+    - -a, --action: an action (encode | decode)
 1. additional options:
     - -i, --input: an input file path
     - -o, --output: an output file path

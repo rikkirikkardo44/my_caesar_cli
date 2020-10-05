@@ -14,7 +14,9 @@ const encoder = (data, shift, action) => {
         ? lowerLatinAlphabet
         : upperLatinAlphabet;
       const idx = currentAlphabetCase.indexOf(letter);
-      const encodeAction = action === "encode" ? idx + Number(shift) : idx - Number(shift);
+      const increment = idx + shift > 25 ? (idx + shift - currentAlphabetCase.length) : idx + shift;
+      const decrement = idx - shift < 0 ? currentAlphabetCase.length + idx - shift : idx - shift;
+      const encodeAction = action === "encode" ? increment : decrement;
       return currentAlphabetCase[encodeAction];
     })
     .join("");

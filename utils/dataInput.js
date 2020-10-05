@@ -18,7 +18,7 @@ const dataInput = async (inputPath, outputPath, shift, action) => {
       return;
     } else {
       const data = await fs.readFile(input, "utf-8");
-      const transformData = transform(data, shift, action) + `\n`;
+      const transformData = `${transform(data, shift, action)}\n`;
       dataOutput(transformData, outputPath);
     }
   }
